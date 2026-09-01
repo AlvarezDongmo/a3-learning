@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Italian B2 Boost</title>
+<meta name="theme-color" content="#4A5D3A">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============ ONBOARDING ============ -->
+  <div class="screen" id="screen-onboarding">
+    <div class="hero">
+      <div class="mission-badge">Benvenuto</div>
+      <h1 class="hero-title">🇮🇹 Italian B2 Boost</h1>
+      <p class="hero-subtitle">14 giorni per ritrovare la tua fluidità</p>
+    </div>
+
+    <div id="onboard-step-1" class="onboard-step active">
+      <h3>Qual è il tuo obiettivo principale?</h3>
+      <button class="choice-btn" data-value="revise">Ripassare il mio italiano</button>
+      <button class="choice-btn" data-value="colloquio">Preparare un colloquio</button>
+      <button class="choice-btn" data-value="fluidita">Migliorare la fluidità</button>
+      <button class="choice-btn" data-value="vocabolario">Migliorare il vocabolario</button>
+    </div>
+
+    <div id="onboard-step-2" class="onboard-step">
+      <h3>Quanto tempo hai ogni giorno?</h3>
+      <button class="choice-btn" data-value="30">30 minuti</button>
+      <button class="choice-btn" data-value="45">45 minuti</button>
+      <button class="choice-btn" data-value="60">60 minuti</button>
+    </div>
+
+    <div id="onboard-step-3" class="onboard-step">
+      <h3>Che ritmo preferisci?</h3>
+      <button class="choice-btn" data-value="normale">Normale</button>
+      <button class="choice-btn" data-value="intensiva">Intensiva</button>
+    </div>
+
+    <div id="onboard-step-4" class="onboard-step">
+      <h3>Alcuni dettagli facoltativi</h3>
+      <p class="small-muted">Servono solo a rendere più realistiche le simulazioni. Puoi lasciarli vuoti.</p>
+      <input type="text" id="input-name" placeholder="Il tuo nome (facoltativo)" style="margin-bottom:10px;">
+      <input type="text" id="input-field" placeholder="Il tuo settore di studi (facoltativo)" style="margin-bottom:10px;">
+      <input type="text" id="input-city" placeholder="Città italiana desiderata (facoltativo)" style="margin-bottom:16px;">
+      <button class="btn-primary btn-block" id="btn-finish-onboarding">Inizia il percorso ▶</button>
+    </div>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="screen" id="screen-dashboard">
+    <div class="topbar">
+      <div class="brand"><span class="flag-strip"><span></span><span></span><span></span></span> Italian B2 Boost</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-subtitle" id="dash-greeting">Bentornato/a</div>
+      <div class="progress-label">
+        <span id="dash-day-label">Giorno 1 / 14</span>
+        <span id="dash-percent">7%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="dash-progress-fill"></div></div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-chip"><span class="stat-value" id="stat-streak">🔥 0</span><span class="stat-label">Serie</span></div>
+      <div class="stat-chip"><span class="stat-value" id="stat-xp">⭐ 0</span><span class="stat-label">XP</span></div>
+      <div class="stat-chip"><span class="stat-value" id="stat-time">0 min</span><span class="stat-label">Oggi</span></div>
+    </div>
+
+    <div class="cta-card">
+      <div class="cta-eyebrow" id="cta-day-label">Giorno 1</div>
+      <h3 id="cta-title">Completa la missione di oggi</h3>
+      <button class="btn-primary" id="btn-start-mission">▶ Comincia</button>
+    </div>
+
+    <div class="skills-section">
+      <h3>📊 Le mie competenze</h3>
+      <div id="skills-list"></div>
+    </div>
+
+    <div class="path-section">
+      <h3>🗺️ Percorso di 14 giorni</h3>
+      <p class="path-hint">Tocca un giorno sbloccato per iniziare o ripassare.</p>
+      <div class="trail" id="trail-list"></div>
+    </div>
+  </div>
+
+  <!-- ============ MISSION SCREEN ============ -->
+  <div class="screen" id="screen-mission">
+    <div class="topbar">
+      <button class="back-btn" data-goto="dashboard">←</button>
+      <div class="brand" id="mission-day-title">Giorno 1</div>
+      <span style="width:30px"></span>
+    </div>
+    <div class="mission-header">
+      <div class="mission-badge" id="mission-step-label">Missione 1 — Riscaldamento</div>
+      <h2 id="mission-title">Riscaldamento</h2>
+    </div>
+    <div class="mission-nav" id="mission-nav"></div>
+    <div id="mission-content"></div>
+  </div>
+
+  <!-- ============ INTERVIEW SIMULATOR ============ -->
+  <div class="screen" id="screen-interview">
+    <div class="topbar">
+      <button class="back-btn" data-goto="dashboard">←</button>
+      <div class="brand">🎙️ Simulazione</div>
+      <span style="width:30px"></span>
+    </div>
+    <div id="interview-content"></div>
+  </div>
+
+  <!-- ============ REVISIONI ============ -->
+  <div class="screen" id="screen-revisioni">
+    <div class="topbar">
+      <div class="brand">📚 Revisioni</div>
+    </div>
+    <div id="revisioni-content"></div>
+  </div>
+
+  <!-- ============ BADGES ============ -->
+  <div class="screen" id="screen-badges">
+    <div class="topbar">
+      <div class="brand">🏆 Badge</div>
+    </div>
+    <div class="badge-grid" id="badge-grid"></div>
+  </div>
+
+  <!-- ============ RESULT / FINAL EXAM ============ -->
+  <div class="screen" id="screen-result">
+    <div class="topbar">
+      <button class="back-btn" data-goto="dashboard">←</button>
+      <div class="brand">Risultato</div>
+      <span style="width:30px"></span>
+    </div>
+    <div id="result-content"></div>
+  </div>
+
+  <!-- Tab bar (visible only on main screens) -->
+  <div class="tabbar" id="tabbar">
+    <button class="tab-btn active" data-tab="dashboard" data-goto="dashboard">
+      <span class="tab-icon">🏠</span>Home
+    </button>
+    <button class="tab-btn" data-tab="interview" data-goto="interview-menu">
+      <span class="tab-icon">🎙️</span>Colloquio
+    </button>
+    <button class="tab-btn" data-tab="revisioni" data-goto="revisioni">
+      <span class="tab-icon">📚</span>Revisioni
+    </button>
+    <button class="tab-btn" data-tab="badges" data-goto="badges">
+      <span class="tab-icon">🏆</span>Badge
+    </button>
+  </div>
+
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/exercises.js"></script>
+<script src="js/exercises2.js"></script>
+<script src="js/exercises3.js"></script>
+<script src="js/dialogues.js"></script>
+<script src="js/analyzer.js"></script>
+<script src="js/speech.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

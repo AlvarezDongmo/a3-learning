@@ -1,0 +1,14 @@
+{
+  "name": "Italian B2 Boost",
+  "short_name": "IT B2 Boost",
+  "description": "14 giorni per ritrovare la tua fluidità in italiano — preparazione al colloquio consolare",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FAF8F4",
+  "theme_color": "#4A5D3A",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
